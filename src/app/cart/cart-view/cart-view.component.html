@@ -1,0 +1,23 @@
+<div class="container">
+  <h2>Your cart</h2>
+  <mat-card>
+    <mat-list>
+      @for (item of cartItems; track item.name) {
+        <mat-list-item>
+          <span matListItemTitle> {{ item.name }} </span>
+          <span matListItemLine> {{ item.price | currency: 'USD' }} </span>
+        </mat-list-item>
+      }
+      <mat-list-item>
+        <span class="price" matListItemTitle> Total (USD) </span>
+        <span class="price" matListItemLine> {{ totalPrice | currency: 'USD' }} </span>
+      </mat-list-item>
+      <mat-list-item class="text-right">
+        <button mat-flat-button color="warn" (click)="clearCart()">Clear</button>
+      </mat-list-item>
+      <mat-list-item class="text-right">
+        <button mat-raised-button color="primary" (click)="checkout()">Checkout</button>
+      </mat-list-item>
+    </mat-list>
+  </mat-card>
+</div>
